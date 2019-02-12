@@ -1,0 +1,270 @@
+* {
+    color: white;
+    margin: 0;
+    font-size: 14pt;
+}
+
+body {
+    background-color: #333;
+}
+
+    /* HEADER */
+
+.cabecera {
+    display: grid;
+    grid-template-columns: 100px  1fr;
+
+    background-color: #1a1a1a;
+    padding: 15px 0;
+ }
+ 
+ .cabecera img {
+    width: 50%;
+    margin: auto;
+ } 
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    width: 100%;
+}
+
+.menu a{
+    display: flex;
+    align-items: center;
+
+}
+
+.menu a div{
+    padding-left: 10%;
+    font-size: 1rem;
+    border-left: 2px solid #00a4ff;
+    padding: 0 15px;
+    transition:color .3s;
+}
+
+.linea-azul {
+    background-color: #00a4ff;
+    margin: auto;
+    padding: 1px;
+    width: 98%;
+}
+
+.menu a:hover div{
+    color: #00a4ff;
+}
+
+/* LINKS */
+
+a , a:hover , a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:link, a:hover {
+    text-decoration: none;
+}
+
+    /* SECTION */
+
+.cuerpo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-gap: 20px;
+
+    background-color: #333;
+    padding: 0 5%;
+    margin-top: 20px;
+    
+}
+
+    /* CONTENEDORES DE IMAGENES */
+
+.contenedores {
+    display: grid;
+    border-radius: 10px;
+    background: #1a1a1a;
+}
+
+
+.contenedores a {
+    /* height: 100%; */
+    display: flex;
+    align-items: center;
+    
+}
+
+.contenedores img {
+    border-radius: 10px;
+    width: 100%;
+    margin: auto;
+}
+
+/* PAGINA DE DESCRIPCION */
+
+.info {
+    background-color: rgba(0,0,0,0.9);
+    height: 350px;
+    box-shadow: 0px 6px 46px 0px rgba(0,0,0,0.75);
+}
+
+.imagen-cont { 
+    width: 250px;
+    height:100%;
+    margin: 50px auto;
+    
+}
+
+.imagen img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.text-title {
+    font-size: 60pt;
+    margin-top: 60px;
+}
+
+.estrellas {
+    margin: -60px 0;
+}
+
+.estrellas i {
+    font-size: 50px;
+    color: #00a4ff;
+}
+
+.description {
+    width: 80%; 
+    margin: auto;
+    text-align: center;
+}
+
+.parrafos {
+    background-color: #222;
+    margin: 10px 30px 0;
+    border-radius: 10px; 
+    padding: 15px;
+}
+
+.parrafos h3 , .parrafos strong {
+    color: #F47C11;
+}
+
+/* TRANAJO NUEVO */
+
+#trabajoNuevo, #contacto{
+    display: grid;
+    grid-template-columns: 1fr 50% 1fr;
+}
+
+.contactoForm {
+    background-color: rgba(0,0,0,0.75);
+    border-radius: 20px;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+form h1 {
+    text-align: center;
+    font-size: 30pt;
+    margin: 20px auto;
+    color:  #fff;
+}
+
+.form-input {
+    background: #112;
+    width: 95%;
+    /* height: 60px; */
+    padding: 15px 0;
+    /* margin-bottom: 20px; */
+    padding-left: 20px;
+    border: 2px solid #00a4ff;
+    border-radius: 10px; 
+    color: #fff;
+    margin: 0 auto;
+    margin-bottom: 40px
+}
+
+label {
+    color: #00a4ff;
+    margin-left: 50px;
+}
+
+.form-submit {
+    background-color: #00a4ff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 0 auto 40px;
+    width: 95%;
+    transition: linear .5s;
+}
+
+.form-submit:hover {
+    background: rgba(0, 164, 255, 0.26);
+}
+
+.form-submit:focus {
+    background: rgba(0, 164, 255, 0.26);
+}
+
+.form-file {
+    color: #00a4ff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
