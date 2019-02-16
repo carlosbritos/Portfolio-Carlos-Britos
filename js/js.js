@@ -6,50 +6,44 @@ var listItems = {
         for (var i = 0; i < listItems.items.length; i++ ){
             $('#section').append(listItems.assamble(listItems.items[i]))
         }
-
-    },
+},
 
     assamble: function(a){
         return  '<div class="contenedores" data-id="' + a.id + '">'
         + '<a href="#"' + 'class="logoDescription" >'
         + '<img src="' + a.logoImage + '" alt="Logo">'        
+        + '<div class="previewDesc">'+ a.nombreLogo + '</div>'
         + '</a>'
         + '</div>';
 },
-
     
-    //si el Data-id dentro de la clase .contenedores es == a algun a.id enviar datos de ese a.id a assamble y ejecutar listDescrition
-    /*
-    conditionalDescription: function(a){
-        if($('.contenedores'.data("id") == a.id){
-            listItems.listDescription()
-        }
-
-    },
-
-    listDescription: function(){
+    listDescription: function(logo){
         for (var i = 0; i < listItems.items.length; i++ ){
-                $('#section').append(listItems.assambleDescription(listItems.items[i]))
+            if(logo == listItems.items[i].id){
+               $('#descripcion').append(listItems.assambleDescription(listItems.items[i]))
+            }
         }
 },
 
     assambleDescription: function (a){
-        return '<div class="info row col-12">'
-        +'<div class="imagen col-3">'
+        return '<div class="info">'
+        +'<div class="imagen">'
         +'<div class="imagen-cont">'
         +'<img src="'+ a.logoImage +'" alt="">'
         +'</div>'
         +'</div>'
-        +'<div class="col-9 row">'
-        +'<div class="text-title col-12">' + a.nombreLogo + '</div>'              
-        +'<div class="estrellas col-12">'
+        +'<div class="tituloYestrellas">'
+        +'<div class="text-title">' + a.nombreLogo + '</div>'              
+        +'<div class="estrellas">'
         +'<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>'
         +'</div>'
         +'</div>'
         +'</div>'
-        +'<div class="description">'+ a.descripcionLogo +'</div>'
-    },
-    */
+        +'<div class="description">'
+        +'<div class="textDesc">' + a.descripcionLogo +'</div class="textDesc">'
+        +'</div>'
+},
+    
 
 
     setItems: function(b){
@@ -57,6 +51,7 @@ var listItems = {
     },
 
     items: [],
+
 }
 
 listItems.setItems(elementsList);
@@ -73,13 +68,13 @@ var listFormNewJob = {
         return '<form class="contactoForm">'
         +'<h1 class="titulo">Subir nuevo trabajo</h1>'
         +'<label for="" class="form-label">Nombre</label>'
-        +'<input type="text" class="form-input" required>'
+        +'<input type="text" class="form-input inputName" required>'
         +'<label for="" class="form-label">Descripción</label>'
-        +'<input type="text" class="form-input" required>'
+        +'<input type="text" class="form-input inputDescription" required>'
         +'<label for="" class="form-file">Logo</label>'
-        +'<input type="file" name="pic" class="form-submit" required>'
+        +'<input type="file" name="pic" class="form-submit inputLogoImage" required>'
         +'<label for="" class="form-file">Imagenes</label>'
-        +'<input type="file" multiple="true" name="archivos" class="form-submit" required>'
+        +'<input type="file" multiple="true" name="archivos" class="form-submit inputLogoAplicaciones" required>'
         +'<input type="submit" class="form-submit">'
         +'</form>'
     },
@@ -160,6 +155,7 @@ $(document).ready(function(){
         $('#section').html("");
         $('#trabajoNuevo').html("");
         $('#contacto').html("");
+        $('#descripcion').html("");
         listItems.listAll();
     })
     
@@ -168,6 +164,7 @@ $(document).ready(function(){
         $('#section').html("");
         $('#trabajoNuevo').html("");
         $('#contacto').html("");
+        $('#descripcion').html("");
         listFormNewJob.listForm();
     })
     
@@ -176,41 +173,39 @@ $(document).ready(function(){
         $('#section').html("");
         $('#trabajoNuevo').html("");
         $('#contacto').html("");
+        $('#descripcion').html("");
         listFormContact.listForm();
     })
     
     $('.logoDescription').on('click',function(){
        
         $('#section').html("");
-        listItems.conditionalDescription();
-        
+        var logo = $(this).parent().data('id');
+        listItems.listDescription(logo);
+        document.getElementById('section').style.margin = "0";
+
     })
-    
-    
-    
-}
-)
+})
 
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    $('.form-submit').on('click',function(){
+$('.form-submit').on('click',function(){
         
-    $('.trabajoNuevo').html("");
+        $('#section').html("");
+        $('#trabajoNuevo').html("");
+        $('#contacto').html("");
+        $('#descripcion').html("");
+        listItems.listAll();
+        // alert('Su trabajo ha sido enviado con exito');
+
+        var inputName = $('.inputName').val();
+        var inputDescription = $('.inputDescription').val();
+        var inputLogoImage = $('.inputLogoImage').val();
+        var inputLogoAplicaciones = $('.inputLogoAplicaciones').val();
 
     $.ajax({
-        method: 'GET',
+        method: 'POST',
         url: 'http://www.mockable.io'
     }).then(function(response){
         console.log("")
