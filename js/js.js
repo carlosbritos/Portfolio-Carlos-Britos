@@ -152,11 +152,13 @@ $(document).ready(function(){
 
     $('.logos').on('click',function(){
         
-        $('#section').html("");
+        /* $('#section').html("");
         $('#trabajoNuevo').html("");
         $('#contacto').html("");
         $('#descripcion').html("");
-        listItems.listAll();
+        listItems.listAll(); */
+
+        location.reload();
     })
     
     $('.trabajo-nuevo').on('click',function(){
